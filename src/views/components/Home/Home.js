@@ -1,10 +1,6 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { TodoHeader } from 'views/components';
 
-const Home = () => (
-  <Container>
-    <p>Home</p>
-  </Container>
-);
+const Home = () => <TodoHeader />;
 
 export default Home;
