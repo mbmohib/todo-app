@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '@material-ui/core';
 
-import { Footer } from 'views/components';
+import { Footer, TodoHeader } from 'views/components';
 import media from 'theme/mediaQuery';
 
 const Wrapper = styled.div`
@@ -27,14 +26,14 @@ const Main = styled.div`
     `}
 
   ${media.md`
-    width: 75%;
+    width: 65%;
     padding: 30px;
     margin-top: 80px;
     border-radius: 20px;
     `}
 
   ${media.lg`
-    width: 50%;
+    width: 40%;
     `}
 
   ${media.xl`
@@ -45,7 +44,10 @@ const Main = styled.div`
 const Layout = ({ children }) => (
   <Wrapper>
     <main style={{ flexGrow: 1 }}>
-      <Main>{children}</Main>
+      <Main>
+        <TodoHeader />
+        {children}
+      </Main>
     </main>
     <Footer />
   </Wrapper>

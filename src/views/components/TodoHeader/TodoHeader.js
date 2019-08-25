@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography, Button, Fab, Box } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 import { Wrapper } from 'views/ui';
 
@@ -17,7 +18,7 @@ const TodoHeader = () => (
       </Grid>
       <Grid item xs={4}>
         <Wrapper flex justify="flex-end" align="center">
-          <Fab color="primary" aria-label="add">
+          <Fab color="primary" aria-label="add" component={Link} to="/add">
             <Add />
           </Fab>
         </Wrapper>

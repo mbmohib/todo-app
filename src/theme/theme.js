@@ -1,7 +1,15 @@
+const values = {
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920,
+};
+
 export default {
   breakpoints: {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
-    values: { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1920 },
+    up: key => `@media (min-width:${values[key]}px)`,
   },
   space: [0, 8, 16, 24, 32, 64, 128, 256],
   shadows: [
@@ -117,7 +125,7 @@ export default {
   palette: {
     // light: 'rgba(1, 1, 1, 1.00)',
     // tonalOffset: 0.2,
-    background: { paper: '#fff', default: '#2574A9', light: '#EB1763' },
+    background: { paper: '#fff', default: '#5b75e3', light: '#EB1763' },
     // contrastThreshold: 3,
     grey: {
       '50': '#f9f9f9',

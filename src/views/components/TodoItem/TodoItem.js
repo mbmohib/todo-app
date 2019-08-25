@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Checkbox, Grid, Box, Hidden } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
 
-import { Todo, IconButtonExtended } from 'views/ui';
+import { Todo, IconButton } from 'views/ui';
 
 const TodoItem = ({ todo }) => {
   const [checkboxValue, setCheckbox] = useState(false);
@@ -29,14 +29,14 @@ const TodoItem = ({ todo }) => {
           <Grid item xs={8} />
         </Hidden>
         <Grid item xs={2} sm={1}>
-          <IconButtonExtended aria-label="edit">
+          <IconButton aria-label="edit">
             <Edit />
-          </IconButtonExtended>
+          </IconButton>
         </Grid>
         <Grid item xs={2} sm={1}>
-          <IconButtonExtended aria-label="delete">
+          <IconButton aria-label="delete">
             <Delete />
-          </IconButtonExtended>
+          </IconButton>
         </Grid>
       </Grid>
     </Box>
