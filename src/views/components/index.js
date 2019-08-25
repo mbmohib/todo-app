@@ -1,6 +1,7 @@
 import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import TodoHeader from './TodoHeader/TodoHeader';
-import Task from './Task/Task';
+import TodoItem from './TodoItem/TodoItem';
+import TodoList from './TodoList/TodoList';
 
-export { Home, TodoHeader, Task, Footer };
+export { Home, TodoHeader, TodoList, TodoItem, Footer };
