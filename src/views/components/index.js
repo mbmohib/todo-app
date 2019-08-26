@@ -1,7 +1,7 @@
-import Footer from './Footer/Footer';
-import TodoHeader from './TodoHeader/TodoHeader';
-import TodoItem from './TodoItem/TodoItem';
-import TodoList from './TodoList/TodoList';
-import AddEditTodo from './AddEditTodo/AddEditTodo';
+import Footer from 'views/components/Footer/Footer';
+import TodoHeader from 'views/components/TodoHeader/TodoHeader';
+import TodoItem from 'views/components/TodoItem/TodoItem';
+import TodoList from 'views/components/TodoList/TodoListContainer';
+import AddEditTodo from 'views/components/AddEditTodo/AddEditTodoContainer';
 
 export { TodoHeader, TodoList, TodoItem, AddEditTodo, Footer };
