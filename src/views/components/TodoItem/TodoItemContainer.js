@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { todoActions } from 'state/todos';
 import TodoItem from './TodoItem';
 
 const TodoItemContainer = ({ todo, updateTodo, deleteTodo }) => {
+  useEffect(() => {
+    // console.log('TodoItemContainer: UseEffect');
+  });
+
   const hanldeTodoDelete = () => {
     deleteTodo({ id: todo.id });
   };

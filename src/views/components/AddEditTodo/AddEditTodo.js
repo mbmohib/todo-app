@@ -13,6 +13,7 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
     console.log('AddEditTodo: UseEffect');
     if (todoTitle) {
       setTodo(todoTitle);
+      setValidation(todoTitle);
       console.log('AddEditTodo: UseEffect:setTodo');
     }
 
@@ -22,12 +23,13 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
   }, [todoTitle]);
 
   const handleTodoChange = event => {
-    setTodo(event.target.value);
+    const inputValue = event.target.value;
+    setTodo(inputValue);
+    setValidation(inputValue);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setValidation(todo);
 
     if (validation.isValid) {
       handleAddTodo(todo);
@@ -44,7 +46,7 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
       {console.log('AddEditTodo: Render')}
       <form onSubmit={handleSubmit}>
         <TextField
-          error={validation.isValid}
+          error={!validation.isValid}
           fullWidth
           helperText={validation.message}
           id="standard-name"
@@ -63,7 +65,12 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
             <ArrowBack />
             Back
           </Button>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            disabled={!validation.isValid}
+          >
             <Save />
             {todoTitle ? 'Update Todo' : 'Add Todo'}
           </Button>

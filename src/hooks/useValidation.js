@@ -6,12 +6,12 @@ const useValidation = () => {
   const handleChange = value => {
     if (!value.trim()) {
       setValidation({
-        isValid: true,
+        isValid: false,
         message: 'Please enter your todo.',
       });
     } else {
       setValidation({
-        isValid: false,
+        isValid: true,
         message: '',
       });
     }

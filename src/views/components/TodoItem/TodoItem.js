@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Checkbox, Grid, Box, Hidden } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { Todo, IconButton } from 'views/ui';
 
 const TodoItem = ({ todo, hanldeTodoDelete, handleCheckboxChange }) => {
+  useEffect(() => {
+    console.log('TodoItem: UseEffect');
+  });
+
   const { id, title, completed } = todo;
 
   return (
