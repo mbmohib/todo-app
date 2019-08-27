@@ -1,6 +1,6 @@
 export default {
   development: {
-    baseUrl: 'https://jsonplaceholder.typicode.com/',
+    baseUrl: 'https://jsonplaceholder.typicod.com/',
   },
   production: {
     baseUrl: 'https://jsonplaceholder.typicode.com/',

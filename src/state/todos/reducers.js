@@ -2,6 +2,7 @@ import * as types from './types';
 
 const initialState = {
   todoList: [],
+  todo: undefined,
 };
 
 const uiReducers = (state = initialState, action) => {
@@ -13,14 +14,61 @@ const uiReducers = (state = initialState, action) => {
         ...state,
         todoList: state.todoList.concat(payload.slice(0, 6)),
       };
+
+    case types.GET_TODO:
+      const todo = state.todoList.find(todo => todo.id === +payload.id);
+
+      return {
+        ...state,
+        todo,
+      };
+
     case types.ADD_TODO:
       return {
         ...state,
-        todoList: state.todoList.concat({
-          id: payload.id,
-          ...payload.data,
-        }),
+        todoList: state.todoList.concat(payload.data),
       };
+
+    case types.UPDATE_TODO:
+      const todoList = [...state.todoList];
+      const todoIndex = todoList.findIndex(todo => todo.id === +payload.id);
+      const todoItem = {
+        ...todoList[todoIndex],
+        ...payload.data,
+      };
+      todoList[todoIndex] = todoItem;
+
+      return {
+        ...state,
+        todoList,
+      };
+
+    case types.CLEAR_TODO:
+      return {
+        ...state,
+        todo: undefined,
+      };
+
+    case types.DELETE_TODO:
+      const filteredTodoList = state.todoList.filter(
+        todo => todo.id !== +payload.id
+      );
+
+      return {
+        ...state,
+        todoList: filteredTodoList,
+      };
+
+    case types.CLEAR_ALL_COMPLETED_TODOS:
+      const completedTodoList = state.todoList.filter(
+        todo => todo.completed === false
+      );
+
+      return {
+        ...state,
+        todoList: completedTodoList,
+      };
+
     default:
       return state;
   }

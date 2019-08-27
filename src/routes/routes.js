@@ -9,7 +9,7 @@ const Routes = () => (
       <Switch>
         <Route path="/" component={TodoList} exact />
         <Route path="/add" component={AddEditTodo} />
-        <Route path="/edit/{id}" component={AddEditTodo} />
+        <Route path="/edit/:id" component={AddEditTodo} />
       </Switch>
     </Layout>
   </BrowserRouter>

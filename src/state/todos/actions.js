@@ -14,19 +14,27 @@ export const fetchTodoList = () => {
   };
 };
 
-export const addTodo = ({ id, data }) => {
+export const getTodo = ({ id }) => {
+  return {
+    type: types.GET_TODO,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const addTodo = ({ data }) => {
   return {
     type: types.ADD_TODO,
     payload: {
-      id,
       data,
     },
   };
 };
 
-export const editTodo = ({ id, data }) => {
+export const updateTodo = ({ id, data }) => {
   return {
-    type: types.EDIT_TODO,
+    type: types.UPDATE_TODO,
     payload: {
       id,
       data,
@@ -43,12 +51,14 @@ export const deleteTodo = ({ id }) => {
   };
 };
 
-export const setCheckbox = ({ id, data }) => {
+export const clearTodo = () => {
   return {
-    type: types.SET_CHECKBOX,
-    payload: {
-      id,
-      data,
-    },
+    type: types.CLEAR_TODO,
+  };
+};
+
+export const clearAllCompletedTodos = () => {
+  return {
+    type: types.CLEAR_ALL_COMPLETED_TODOS,
   };
 };

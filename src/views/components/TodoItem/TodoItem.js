@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { Todo, IconButton } from 'views/ui';
 
-const TodoItem = ({ todo }) => {
-  const handleChange = () => {};
-  const hanldeTodoDelete = () => {};
-
+const TodoItem = ({ todo, hanldeTodoDelete, handleCheckboxChange }) => {
   const { id, title, completed } = todo;
 
   return (
@@ -17,7 +14,7 @@ const TodoItem = ({ todo }) => {
         <Grid item xs={2} sm={1}>
           <Checkbox
             checked={completed}
-            onChange={handleChange}
+            onChange={handleCheckboxChange}
             value={completed}
             color="primary"
           />

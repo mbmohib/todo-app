@@ -5,23 +5,29 @@ import { Link } from 'react-router-dom';
 
 import { Wrapper } from 'views/ui';
 
-const TodoHeader = () => (
+const TodoHeader = ({ todalTodos, hideAddButton, handleClearAllTodos }) => (
   <Box mb={3}>
     <Grid container alignItems="center">
       <Grid item xs={8}>
         <Box ml={1}>
           <Typography variant="h3">
-            <strong>6</strong> todos to go!
+            You have total <strong>{todalTodos}</strong> todos!
           </Typography>
         </Box>
-        <Button color="secondary">Clear 5 Completed Task</Button>
+        {!hideAddButton && (
+          <Button color="secondary" onClick={handleClearAllTodos}>
+            Clear All Completed Task
+          </Button>
+        )}
       </Grid>
       <Grid item xs={4}>
-        <Wrapper flex justify="flex-end" align="center">
-          <Fab color="primary" aria-label="add" component={Link} to="/add">
-            <Add />
-          </Fab>
-        </Wrapper>
+        {!hideAddButton && (
+          <Wrapper flex justify="flex-end" align="center">
+            <Fab color="primary" aria-label="add" component={Link} to="/add">
+              <Add />
+            </Fab>
+          </Wrapper>
+        )}
       </Grid>
     </Grid>
   </Box>

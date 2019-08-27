@@ -15,7 +15,7 @@ const uiReducers = (state = initialState, action) => {
     case types.SET_ERROR_MESSAGE:
       return {
         ...state,
-        error: payload,
+        error: payload.message,
       };
     case types.CLEAR_ERROR_MESSAGE:
       return {

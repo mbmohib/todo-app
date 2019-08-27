@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { todoActions } from 'state/todos';
+import { Error } from 'views/ui';
 import TodoList from './TodoList';
 
-const TodoListContainer = ({ fetchTodoList, todos, loading }) => {
+const TodoListContainer = ({ fetchTodoList, todos, loading, error }) => {
   useEffect(() => {
     fetchTodoList();
   }, [fetchTodoList]);
 
-  return <TodoList todos={todos} loading={loading} />;
+  return (
+    <Fragment>
+      {error ? <Error /> : <TodoList todos={todos} loading={loading} />}
+    </Fragment>
+  );
 };
 
 const mapStateToProps = ({ ui, todos }) => {
   return {
-    loading: ui.loading.todos,
     todos: todos.todoList,
+    loading: ui.loading.todos,
+    error: ui.error,
   };
 };
 
