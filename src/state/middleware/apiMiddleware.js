@@ -3,12 +3,17 @@ import config from 'config';
 import * as errorTypes from 'state/ui/types';
 import { uiActions } from 'state/ui';
 
-const env = process.env.NODE_ENV || 'development';
-
+/**
+ * API Middleware
+ * For handling all all API request
+ *
+ * @param {*} { dispatch, getState }
+ */
 const apiMiddleware = ({ dispatch }) => next => action => {
-  const baseUrl = `${config[env].baseUrl}`;
   next(action);
 
+  const env = process.env.NODE_ENV || 'development';
+  const baseUrl = `${config[env].baseUrl}`;
   const { API, label } = action.meta || {};
   const { path, method = 'GET', data } = action.payload || {};
 
@@ -22,6 +27,8 @@ const apiMiddleware = ({ dispatch }) => next => action => {
 
   const url = baseUrl + path;
 
+  // Notify request start with passing "label"
+  // for handling multiple loading spinner
   dispatch(uiActions.fetchingStart(label));
 
   return axios({ method, url, data })
@@ -31,6 +38,11 @@ const apiMiddleware = ({ dispatch }) => next => action => {
         payload: res.data,
         meta: action.meta,
       });
+
+      // Store request type after successful
+      dispatch(uiActions.trackApiRequest(action.type));
+
+      // Notify request finished
       dispatch(uiActions.fetchingEnd(label));
     })
     .catch(err => {
@@ -39,6 +51,8 @@ const apiMiddleware = ({ dispatch }) => next => action => {
         payload: err,
         meta: action.meta,
       });
+
+      // Notify request finished
       dispatch(uiActions.fetchingEnd(label));
     });
 };

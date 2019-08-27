@@ -6,7 +6,7 @@ const TodoList = ({ todos, loading }) => {
   return (
     <Fragment>
       {loading ? (
-        <TodoSkeletons times={8} />
+        <TodoSkeletons times={6} />
       ) : (
         todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
       )}

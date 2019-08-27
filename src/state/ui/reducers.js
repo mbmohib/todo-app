@@ -5,6 +5,7 @@ const initialState = {
   loading: {
     todos: true,
   },
+  isRequested: {},
 };
 
 const uiReducers = (state = initialState, action) => {
@@ -35,6 +36,15 @@ const uiReducers = (state = initialState, action) => {
         loading: {
           ...state.loading,
           [payload.label]: false,
+        },
+      };
+
+    case types.TRACKAPIREQUEST:
+      return {
+        ...state,
+        isRequested: {
+          ...state.isRequested,
+          [payload.type]: true,
         },
       };
     default:

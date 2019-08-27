@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import { apiMiddleware } from 'state/middleware';
+import { apiMiddleware, isRequestedMiddleware } from 'state/middleware';
 import uiReducers from 'state/ui';
 import todoReducers from 'state/todos';
 
@@ -14,5 +14,5 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk, apiMiddleware))
+  composeEnhancers(applyMiddleware(thunk, isRequestedMiddleware, apiMiddleware))
 );

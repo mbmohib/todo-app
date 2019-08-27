@@ -14,6 +14,13 @@ export const fetchingEnd = type => {
   };
 };
 
+export const trackApiRequest = type => {
+  return {
+    type: types.TRACKAPIREQUEST,
+    payload: { type },
+  };
+};
+
 export const setErrorMessage = ({ data }) => {
   return {
     type: types.SET_ERROR_MESSAGE,
