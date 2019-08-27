@@ -3,9 +3,11 @@ import { TextField } from '@material-ui/core';
 import { ArrowBack, Save } from '@material-ui/icons';
 
 import { Wrapper, Button } from 'views/ui';
+import { useValidation } from 'hooks';
 
 const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
   const [todo, setTodo] = useState('');
+  const [validation, setValidation] = useValidation();
 
   useEffect(() => {
     console.log('AddEditTodo: UseEffect');
@@ -25,7 +27,11 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    handleAddTodo(todo);
+    setValidation(todo);
+
+    if (validation.isValid) {
+      handleAddTodo(todo);
+    }
   };
 
   return (
@@ -38,7 +44,9 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
       {console.log('AddEditTodo: Render')}
       <form onSubmit={handleSubmit}>
         <TextField
+          error={validation.isValid}
           fullWidth
+          helperText={validation.message}
           id="standard-name"
           placeholder="Buy foods.."
           value={todo}
