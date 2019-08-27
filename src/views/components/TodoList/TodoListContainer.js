@@ -1,18 +1,20 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { todoActions } from 'state/todos';
-import { Error } from 'views/ui';
+import { TodoSkeletons } from 'views/ui';
 import TodoList from './TodoList';
+import { Fetcher } from 'utils';
 
-const TodoListContainer = ({ fetchTodoList, todos, loading, error }) => {
-  useEffect(() => {
-    fetchTodoList();
-  }, [fetchTodoList]);
-
+const TodoListContainer = ({ fetchTodoList, todos }) => {
   return (
     <Fragment>
-      {error ? <Error /> : <TodoList todos={todos} loading={loading} />}
+      <Fetcher
+        fetchData={fetchTodoList}
+        preLoader={<TodoSkeletons times={6} />}
+      >
+        {() => <TodoList todos={todos} />}
+      </Fetcher>
     </Fragment>
   );
 };

@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Snackbar, IconButton } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
 const Error = ({ message }) => {
-  const handleClose = () => {};
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(!!message);
+  }, [message]);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left',
+        vertical: 'top',
+        horizontal: 'right',
       }}
-      open={!!message}
-      autoHideDuration={10000}
+      open={open}
+      autoHideDuration={3000}
       onClose={handleClose}
       ContentProps={{
         'aria-describedby': 'message-id',

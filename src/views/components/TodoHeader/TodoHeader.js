@@ -10,7 +10,7 @@ const TodoHeader = ({ todalTodos, hideAddButton, handleClearAllTodos }) => (
     <Grid container alignItems="center">
       <Grid item xs={8}>
         <Box ml={1}>
-          <Typography variant="h3">
+          <Typography variant="h4">
             You have total <strong>{todalTodos}</strong> todos!
           </Typography>
         </Box>

@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react';
-import { TodoItem } from 'views/components';
-import { TodoSkeletons } from 'views/ui';
 
-const TodoList = ({ todos, loading }) => {
+import { TodoItem } from 'views/components';
+
+const TodoList = ({ todos }) => {
   return (
     <Fragment>
-      {loading ? (
-        <TodoSkeletons times={6} />
-      ) : (
-        todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
-      )}
+      {todos.length > 0 &&
+        todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </Fragment>
   );
 };
