@@ -49,21 +49,18 @@ export default {
     fontWeightRegular: 400,
     fontFamily: '"Roboto", "Ubuntu", sans-serif',
     body1: {
-      color: '#2d3436',
       fontFamily: '"Roboto", "Ubuntu", sans-serif',
       lineHeight: '1.6',
       fontSize: '1rem',
       fontWeight: 400,
     },
     h1: {
-      color: '#2c3e50',
       fontFamily: '"Ubuntu", sans-serif',
       lineHeight: '1.5em',
       fontSize: '48px',
       fontWeight: 300,
     },
     h2: {
-      color: '#2d3436',
       fontFamily: '"Ubuntu", sans-serif',
       letterSpacing: '-0.02em',
       lineHeight: '1.5em',
@@ -71,26 +68,22 @@ export default {
       fontWeight: 300,
     },
     h3: {
-      color: '#2d3436',
       fontFamily: '"Ubuntu", sans-serif',
       lineHeight: '1.4em',
       fontSize: '1.953rem',
       fontWeight: 400,
     },
     h4: {
-      color: '#2d3436',
       lineHeight: '1.4em',
       fontSize: '1.563rem',
       fontWeight: 400,
     },
     h5: {
-      color: '#2d3436',
       lineHeight: '1.4em',
       fontSize: '1.25rem',
       fontWeight: 600,
     },
     h6: {
-      color: '#2d3436',
       lineHeight: '1.4em',
       fontSize: '1rem',
       fontWeight: 600,
@@ -125,7 +118,7 @@ export default {
   palette: {
     // light: 'rgba(1, 1, 1, 1.00)',
     // tonalOffset: 0.2,
-    background: { paper: '#fff', default: '#5b75e3', light: '#95a6ed' },
+    background: { paper: '#fff', default: '#5b75e3', light: '#40529f' },
     // contrastThreshold: 3,
     grey: {
       '50': '#f9f9f9',
