@@ -9,20 +9,17 @@ const AddEditTodoContainer = ({
   addTodo,
   updateTodo,
   clearTodo,
-  todalTodos,
   todo,
   history,
   match,
 }) => {
   useEffect(() => {
-    console.log('AddEditTodoContainer: UseEffect');
     const id = match.params.id;
 
     if (id) {
       getTodo({ id });
     }
     return () => {
-      console.log('AddEditTodoContainer: UseEffect Cleanup');
       clearTodo();
     };
   }, [match.params.id]);
@@ -39,7 +36,9 @@ const AddEditTodoContainer = ({
       addTodo({
         data: {
           userId: 1,
-          id: todalTodos + 1,
+          id: Math.random()
+            .toString(36)
+            .substr(2, 9),
           title: title,
           completed: false,
         },
@@ -55,7 +54,6 @@ const AddEditTodoContainer = ({
 
   return (
     <Fragment>
-      {console.log('AddEditTodoContainer: Render')}
       <AddEditTodo
         todoTitle={todo && todo.title}
         handleAddTodo={handleAddTodo}
@@ -67,7 +65,6 @@ const AddEditTodoContainer = ({
 
 const mapStateToProps = ({ todos }) => {
   return {
-    todalTodos: todos.todoList.length > 0 ? todos.todoList.length : 6,
     todo: todos.todo,
   };
 };

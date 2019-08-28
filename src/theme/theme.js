@@ -125,7 +125,7 @@ export default {
   palette: {
     // light: 'rgba(1, 1, 1, 1.00)',
     // tonalOffset: 0.2,
-    background: { paper: '#fff', default: '#5b75e3', light: '#EB1763' },
+    background: { paper: '#fff', default: '#5b75e3', light: '#95a6ed' },
     // contrastThreshold: 3,
     grey: {
       '50': '#f9f9f9',

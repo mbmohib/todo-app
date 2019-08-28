@@ -10,16 +10,10 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
   const [validation, setValidation] = useValidation();
 
   useEffect(() => {
-    console.log('AddEditTodo: UseEffect');
     if (todoTitle) {
       setTodo(todoTitle);
       setValidation(todoTitle);
-      console.log('AddEditTodo: UseEffect:setTodo');
     }
-
-    return () => {
-      console.log('AddEditTodo: UseEffect Cleanup');
-    };
   }, [todoTitle]);
 
   const handleTodoChange = event => {
@@ -43,7 +37,6 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
       mx="auto"
       mt={10}
     >
-      {console.log('AddEditTodo: Render')}
       <form onSubmit={handleSubmit}>
         <TextField
           error={!validation.isValid}

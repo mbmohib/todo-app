@@ -1,6 +1,14 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 
-const Footer = () => <Container>Footer</Container>;
+import { Wrapper } from 'views/ui';
+
+const Footer = () => (
+  <Wrapper bgcolor="background.light" py={1} align="center">
+    <Container>
+      <Typography>Designed & Developed by Mohib</Typography>
+    </Container>
+  </Wrapper>
+);
 
 export default Footer;

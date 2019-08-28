@@ -12,25 +12,13 @@ const Wrapper = styled.div`
     `}
 
   ${props =>
-    props.align &&
-    css`
-      align-items: ${props.align};
-    `};
-
-  background-color: ${({ bgColor, theme }) =>
-    bgColor === 'gray'
-      ? theme.palette.background.default
-      : bgColor === 'dark'
-      ? '#444444'
-      : bgColor === 'light'
-      ? theme.palette.background.light
-      : ''};
-
-  ${({ bgImage }) =>
-    bgImage
+    props.flex && props.align
       ? css`
-          background: url(${bgImage}) no-repeat center center;
-          background-size: cover;
+          align-items: ${props.align};
+        `
+      : props.align
+      ? css`
+          text-align: ${props.align};
         `
       : ''};
 

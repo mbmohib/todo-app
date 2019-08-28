@@ -12,13 +12,14 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   background: #ffffff;
-  min-height: 60vh;
+  min-height: calc(100vh - 25px);
   box-shadow: ${props => props.theme.shadows[5]};
   width: 100%;
   margin: 0 auto;
   padding: 20px 10px;
 
   ${media.sm`
+    min-height: 60vh;
     width: 85%;
     padding: 20px;
     margin-top: 40px;
