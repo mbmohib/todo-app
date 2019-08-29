@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Snackbar, IconButton } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
+import PropTypes from 'prop-types';
 
 const Error = ({ message }) => {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,10 @@ const Error = ({ message }) => {
       ]}
     />
   );
+};
+
+Error.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 export default Error;

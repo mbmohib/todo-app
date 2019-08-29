@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const TodoSkeletons = ({ times = 1 }) => {
   return (
@@ -23,6 +24,10 @@ const TodoSkeletons = ({ times = 1 }) => {
       ))}
     </Fragment>
   );
+};
+
+TodoSkeletons.propTypes = {
+  times: PropTypes.number,
 };
 
 export default TodoSkeletons;

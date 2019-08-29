@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import { TodoList, AddEditTodo } from 'views/components';
+import { TodoList, AddEditTodo, FourOFour } from 'views/components';
 import Layout from 'views/layouts/Layout';
 
 const Routes = () => (
@@ -10,6 +10,7 @@ const Routes = () => (
         <Route path="/" component={TodoList} exact />
         <Route path="/add" component={AddEditTodo} />
         <Route path="/edit/:id" component={AddEditTodo} />
+        <Route component={FourOFour} />
       </Switch>
     </Layout>
   </BrowserRouter>

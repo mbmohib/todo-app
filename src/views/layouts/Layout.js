@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   background: #ffffff;
-  min-height: calc(100vh - 25px);
+  min-height: calc(100vh - 41px);
   box-shadow: ${props => props.theme.shadows[5]};
   width: 100%;
   margin: 0 auto;

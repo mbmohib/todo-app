@@ -2,6 +2,7 @@ import React from 'react';
 import { Checkbox, Grid, Box, Fade } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { Todo, IconButton } from 'views/ui';
 
@@ -30,18 +31,25 @@ const TodoItem = ({ todo, index, hanldeTodoDelete, handleCheckboxChange }) => {
           </Grid>
           <Grid item xs={1} sm={1}>
             <IconButton aria-label="edit" component={Link} to={`edit/${id}`}>
-              <Edit />
+              <Edit style={{ fontSize: 20 }} />
             </IconButton>
           </Grid>
           <Grid item xs={1} sm={1}>
             <IconButton aria-label="delete" onClick={hanldeTodoDelete}>
-              <Delete />
+              <Delete style={{ fontSize: 20 }} />
             </IconButton>
           </Grid>
         </Grid>
       </Box>
     </Fade>
   );
+};
+
+TodoItem.propTypes = {
+  todo: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  hanldeTodoDelete: PropTypes.func.isRequired,
+  handleCheckboxChange: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField } from '@material-ui/core';
 import { ArrowBack, Save } from '@material-ui/icons';
+import PropTypes from 'prop-types';
 
 import { Wrapper, Button } from 'views/ui';
 import { useValidation } from 'hooks';
@@ -71,6 +72,12 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
       </form>
     </Wrapper>
   );
+};
+
+AddEditTodo.propTypes = {
+  todoTitle: PropTypes.string,
+  handleAddTodo: PropTypes.func.isRequired,
+  handleBackButton: PropTypes.func.isRequired,
 };
 
 export default AddEditTodo;

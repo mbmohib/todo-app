@@ -19,11 +19,9 @@ const TodoListContainer = ({ fetchTodoList, todos }) => {
   );
 };
 
-const mapStateToProps = ({ ui, todos }) => {
+const mapStateToProps = ({ todos }) => {
   return {
     todos: todos.todoList,
-    loading: ui.loading.todos,
-    error: ui.error,
   };
 };
 

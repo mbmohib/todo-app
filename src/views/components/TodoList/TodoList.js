@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { TodoItem } from 'views/components';
 
@@ -11,6 +12,10 @@ const TodoList = ({ todos }) => {
         ))}
     </Fragment>
   );
+};
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
 };
 
 export default TodoList;

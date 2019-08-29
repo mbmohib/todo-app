@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const TodoWrapper = styled(Typography)`
   && {
@@ -43,5 +44,10 @@ const Todo = ({ children, checked }) => (
     {children}
   </TodoWrapper>
 );
+
+Todo.propTypes = {
+  children: PropTypes.node.isRequired,
+  checked: PropTypes.bool.isRequired,
+};
 
 export default Todo;
