@@ -16,7 +16,9 @@ const uiReducers = (state = initialState, action) => {
       };
 
     case types.GET_TODO:
-      const todo = state.todoList.find(todo => todo.id === +payload.id);
+      const todo = state.todoList.find(
+        todo => todo.id.toString() === payload.id.toString()
+      );
 
       return {
         ...state,
@@ -31,7 +33,9 @@ const uiReducers = (state = initialState, action) => {
 
     case types.UPDATE_TODO:
       const todoList = [...state.todoList];
-      const todoIndex = todoList.findIndex(todo => todo.id === +payload.id);
+      const todoIndex = todoList.findIndex(
+        todo => todo.id.toString() === payload.id.toString()
+      );
       const todoItem = {
         ...todoList[todoIndex],
         ...payload.data,
@@ -51,7 +55,7 @@ const uiReducers = (state = initialState, action) => {
 
     case types.DELETE_TODO:
       const filteredTodoList = state.todoList.filter(
-        todo => todo.id !== +payload.id
+        todo => todo.id.toString() !== payload.id.toString()
       );
 
       return {

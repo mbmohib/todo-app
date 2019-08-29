@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { todoActions } from 'state/todos';
 import TodoItem from './TodoItem';
 
-const TodoItemContainer = ({ todo, updateTodo, deleteTodo }) => {
+const TodoItemContainer = ({ todo, index, updateTodo, deleteTodo }) => {
   const hanldeTodoDelete = () => {
     deleteTodo({ id: todo.id });
   };
@@ -21,6 +21,7 @@ const TodoItemContainer = ({ todo, updateTodo, deleteTodo }) => {
   return (
     <TodoItem
       todo={todo}
+      index={index}
       hanldeTodoDelete={hanldeTodoDelete}
       handleCheckboxChange={handleCheckboxChange}
     />

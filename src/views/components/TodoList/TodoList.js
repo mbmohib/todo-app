@@ -6,7 +6,9 @@ const TodoList = ({ todos }) => {
   return (
     <Fragment>
       {todos.length > 0 &&
-        todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+        todos.map((todo, index) => (
+          <TodoItem key={todo.id} todo={todo} index={index} />
+        ))}
     </Fragment>
   );
 };
