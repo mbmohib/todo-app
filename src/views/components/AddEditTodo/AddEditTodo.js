@@ -43,7 +43,8 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
           error={!validation.isValid}
           fullWidth
           helperText={validation.message}
-          id="standard-name"
+          id="add-edit-todo"
+          name="title"
           placeholder="Buy foods.."
           value={todo}
           onChange={handleTodoChange}
