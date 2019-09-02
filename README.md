@@ -1,6 +1,6 @@
 # TODO APP
 
-### A simple Todo App showing implementation of React Hooks, Redux using Feature based (modified) folder structure
+### A simple Todo App showing implementation of React Hooks, Redux using Feature First (modified) folder structure
 
 ## Live
 
@@ -21,6 +21,7 @@ Demo [https://react-hooks-redux-todoapp.netlify.com/](https://react-hooks-redux-
 - Use Redux middleware for Handling API Request, Loading and error
 - Use a "Fetcher" component for api request, showing loader and error
 - A Modified Feature First folder where state is seperated from view.
+- Implement Unit test using React Testing Library.
 
 # How to use
 
