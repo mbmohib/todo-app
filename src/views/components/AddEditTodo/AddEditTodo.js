@@ -38,12 +38,13 @@ const AddEditTodo = ({ todoTitle, handleAddTodo, handleBackButton }) => {
       mx="auto"
       mt={10}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="todo-form">
         <TextField
           error={!validation.isValid}
           fullWidth
           helperText={validation.message}
           id="add-edit-todo"
+          inputProps={{ 'data-testid': 'add-edit-todo' }}
           name="title"
           placeholder="Buy foods.."
           value={todo}
