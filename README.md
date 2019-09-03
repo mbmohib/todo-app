@@ -24,6 +24,7 @@ Demo [https://react-hooks-redux-todoapp.netlify.com/](https://react-hooks-redux-
 - Created a UI folder in 'view' folder that can be easily exported for use in other projects. The UI folder is following the Atomic Design pattern.
 - Used React Router for routing. (Although this type of App can have a better UX without the router, but wanted to show the implementation of React Router)
 - Implemented Unit testing
+- Redux Dev Tool is attached for viewing state structure and action flow.
 
 # How to use
 
