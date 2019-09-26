@@ -1,8 +1,8 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { connect } from 'react-redux';
 
 import { todoActions } from 'state/todos';
-import AddEditTodo from './AddEditTodo';
+const AddEditTodo = lazy(() => import('./AddEditTodo'));
 
 const AddEditTodoContainer = ({
   getTodo,
@@ -53,13 +53,13 @@ const AddEditTodoContainer = ({
   };
 
   return (
-    <Fragment>
+    <Suspense fallback={<div>Loading...</div>}>
       <AddEditTodo
         todoTitle={todo && todo.title}
         handleAddTodo={handleAddTodo}
         handleBackButton={handleBackButton}
       />
-    </Fragment>
+    </Suspense>
   );
 };
 
